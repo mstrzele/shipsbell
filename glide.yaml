@@ -1,0 +1,8 @@
+package: github.com/mstrzele/get-deploy-image
+import:
+- package: github.com/mitchellh/go-homedir
+- package: k8s.io/client-go
+  subpackages:
+  - kubernetes
+  - pkg/apis/meta/v1
+  - tools/clientcmd
