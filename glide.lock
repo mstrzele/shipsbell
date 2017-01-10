@@ -1,5 +1,5 @@
 hash: fd617a3f27229928462513e42e152929b86f867ffb61a73b879a5ca88edb25b1
-updated: 2016-12-21T20:53:30.337821285+01:00
+updated: 2017-01-04T11:22:47.765699602+01:00
 imports:
 - name: cloud.google.com/go
   version: 3b1ae45394a234c385be014e9a488f2bb6eef821
@@ -139,7 +139,7 @@ imports:
 - name: gopkg.in/yaml.v2
   version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
 - name: k8s.io/client-go
-  version: 5fe6fc56cb38d04ef4af601a03599c984229dea2
+  version: 24a02a6d7d2c9a21b12a3eb35c71c784e63825f4
   subpackages:
   - discovery
   - kubernetes
