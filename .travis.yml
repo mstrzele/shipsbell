@@ -11,4 +11,4 @@ before_install:
 install:
   - glide install
 
-script: true
+script: go test -v $(glide novendor)
