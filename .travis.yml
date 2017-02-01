@@ -19,7 +19,7 @@ before_script:
   - go get github.com/mitchellh/gox
 
 script:
-  - gometalinter --deadline=30s $(glide novendor)
+  - gometalinter --deadline=5m $(glide novendor)
   - go test -v $(glide novendor)
 
 after_success: gox -ldflags "-X main.metadata=$TRAVIS_BUILD_NUMBER" -osarch "linux/amd64 linux/386 darwin/amd64"
