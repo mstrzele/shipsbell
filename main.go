@@ -87,14 +87,14 @@ func main() {
 					".status.replicas":           deployment.Status.Replicas,
 				}).Debug()
 
-				if rolloutStatus(deployment) && deployments[deployment.ObjectMeta.UID] == true {
+				if rolloutStatus(deployment) && deployments[deployment.ObjectMeta.UID] {
 					deployments[deployment.ObjectMeta.UID] = false
 
 					log.WithFields(log.Fields{
 						"namespace": deployment.ObjectMeta.Namespace,
 						"name":      deployment.ObjectMeta.Name,
 					}).Info("Deployment rolled out")
-				} else if deployments[deployment.ObjectMeta.UID] == false {
+				} else if !deployments[deployment.ObjectMeta.UID] {
 					deployments[deployment.ObjectMeta.UID] = true
 
 					log.WithFields(log.Fields{
