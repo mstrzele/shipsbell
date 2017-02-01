@@ -8,13 +8,15 @@ before_install:
   - sudo add-apt-repository ppa:masterminds/glide -y
   - sudo apt-get update -q
   - sudo apt-get install glide -y
-  - go get -u github.com/alecthomas/gometalinter
-  - gometalinter --install
-  - go get github.com/mitchellh/gox
 
 install:
   - glide install
   - go install
+
+before_script:
+  - go get -u github.com/alecthomas/gometalinter
+  - gometalinter --install
+  - go get github.com/mitchellh/gox
 
 script:
   - gometalinter --deadline=30s $(glide novendor)
