@@ -5,13 +5,13 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
-	"k8s.io/client-go/1.5/kubernetes"
-	"k8s.io/client-go/1.5/pkg/api"
-	"k8s.io/client-go/1.5/pkg/apis/extensions/v1beta1"
-	"k8s.io/client-go/1.5/pkg/fields"
-	"k8s.io/client-go/1.5/pkg/types"
-	"k8s.io/client-go/1.5/tools/cache"
-	"k8s.io/client-go/1.5/tools/clientcmd"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/pkg/api"
+	"k8s.io/client-go/pkg/apis/extensions/v1beta1"
+	"k8s.io/client-go/pkg/fields"
+	"k8s.io/client-go/pkg/types"
+	"k8s.io/client-go/tools/cache"
+	"k8s.io/client-go/tools/clientcmd"
 )
 
 var (
@@ -49,7 +49,7 @@ func main() {
 	}
 
 	lw := cache.NewListWatchFromClient(
-		clientset.Extensions().GetRESTClient(),
+		clientset.Extensions().RESTClient(),
 		"deployments",
 		*namespace,
 		fields.Everything(),
