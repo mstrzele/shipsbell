@@ -7,7 +7,7 @@ import (
 var metadata string
 
 func version() (string, error) {
-	v, err := semver.NewVersion("0.2.0")
+	v, err := semver.NewVersion("0.3.0")
 	if err != nil {
 		return v.String(), err
 	}
