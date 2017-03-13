@@ -1,5 +1,5 @@
 hash: 6c70c88aa08e1ea0ce36887baf4247121004138d75be90073e26a738c1d5340b
-updated: 2017-03-13T15:26:44.576406032+01:00
+updated: 2017-03-13T16:08:52.629048066+01:00
 imports:
 - name: cloud.google.com/go
   version: 3b1ae45394a234c385be014e9a488f2bb6eef821
@@ -69,6 +69,10 @@ imports:
   version: 3ca23474a7c7203e0a0a070fd33508f6efdb9b3d
 - name: github.com/imdario/mergo
   version: 6633656539c1639d9d78127b7d47c622b5d7b6dc
+- name: github.com/johntdyer/slack-go
+  version: 88736fd63eed11c942b478c3182bdd2f152971e5
+- name: github.com/johntdyer/slackrus
+  version: 9c71df2f4ceb8d8b0bbb12c65c56a8e03e34adba
 - name: github.com/jonboulle/clockwork
   version: 72f9bd7c4e0c2a40055ab3d0f09654f730cce982
 - name: github.com/juju/ratelimit

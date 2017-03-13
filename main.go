@@ -4,6 +4,7 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
+	"github.com/johntdyer/slackrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/pkg/api"
@@ -15,10 +16,11 @@ import (
 )
 
 var (
-	debug          = kingpin.Flag("debug", "Enable debug mode.").Short('d').Bool()
-	masterURL      = kingpin.Flag("master", "").String()
-	kubeconfigPath = kingpin.Flag("kubeconfig", "").Default(clientcmd.NewDefaultPathOptions().GetDefaultFilename()).Envar(clientcmd.RecommendedConfigPathEnvVar).String()
-	namespace      = kingpin.Flag("namespace", "").Default(api.NamespaceAll).Short('n').String()
+	debug           = kingpin.Flag("debug", "Enable debug mode.").Short('d').Bool()
+	masterURL       = kingpin.Flag("master", "").String()
+	kubeconfigPath  = kingpin.Flag("kubeconfig", "").Default(clientcmd.NewDefaultPathOptions().GetDefaultFilename()).Envar(clientcmd.RecommendedConfigPathEnvVar).String()
+	namespace       = kingpin.Flag("namespace", "").Default(api.NamespaceAll).Short('n').String()
+	slackWebhookURL = kingpin.Flag("slack-webhook-url", "").String()
 )
 
 func main() {
@@ -36,6 +38,13 @@ func main() {
 
 	if *debug {
 		log.SetLevel(log.DebugLevel)
+	}
+
+	if *slackWebhookURL != "" {
+		log.AddHook(&slackrus.SlackrusHook{
+			HookURL:        *slackWebhookURL,
+			AcceptedLevels: slackrus.LevelThreshold(log.InfoLevel),
+		})
 	}
 
 	config, err := clientcmd.BuildConfigFromFlags(*masterURL, *kubeconfigPath)
