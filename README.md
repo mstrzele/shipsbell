@@ -11,16 +11,17 @@ $ go get github.com/mstrzele/shipsbell
 ## Usage
 
 ```bash
-$ shipsbell -h
 usage: shipsbell [<flags>]
 
 Flags:
   -h, --help           Show context-sensitive help (also try --help-long and --help-man).
   -d, --debug          Enable debug mode.
-      --master=MASTER
-      --kubeconfig="/Users/mstrzele/.kube/config"
-
-  -n, --namespace=""
+      --master=MASTER  
+      --kubeconfig="/Users/mstrzele/.kube/config"  
+                       
+  -n, --namespace=""   
+      --slack-webhook-url=SLACK-WEBHOOK-URL  
+                       
   -v, --version        Show application version.
 
 ```
